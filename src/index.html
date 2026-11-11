@@ -62,8 +62,27 @@
       </div>
 
       <section class="products">
-        <h2>Top Products</h2>
-        <ul class="product-list">
+        <div class="product-toolbar">
+          <h2>Top Products</h2>
+          <div class="product-sort">
+            <label for="product-sort">Sort by</label>
+            <select id="product-sort" aria-controls="product-list">
+              <option value="featured">Featured</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="name-asc">Name: A to Z</option>
+              <option value="name-desc">Name: Z to A</option>
+            </select>
+          </div>
+        </div>
+        <p
+          id="product-sort-status"
+          class="product-sort-status"
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+        ></p>
+        <ul id="product-list" class="product-list">
           <li class="product-card">
             <a href="product_pages/marmot-ajax-3.html">
               <img

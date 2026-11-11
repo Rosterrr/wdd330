@@ -156,6 +156,54 @@ button {
   padding: 1rem;
 }
 
+.product-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.product-sort {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+
+.product-sort label {
+  font-weight: 600;
+}
+
+.product-sort select {
+  min-height: 44px;
+  max-width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--dark-grey);
+  border-radius: 0.25rem;
+  background-color: #fff;
+  color: var(--dark-grey);
+  font: inherit;
+}
+
+.product-sort select:focus-visible {
+  outline: 3px solid var(--secondary-color);
+  outline-offset: 3px;
+}
+
+.product-sort-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 .product-list {
   display: flex;
   flex-flow: row wrap;

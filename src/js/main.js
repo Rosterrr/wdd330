@@ -1,3 +1,11 @@
+import { initProductSort } from "./ProductSort.mjs";
+
+initProductSort(
+  document.getElementById("product-list"),
+  document.getElementById("product-sort"),
+  document.getElementById("product-sort-status"),
+);
+
 const backToTop = document.getElementById("back-to-top");
 const pageTop = document.getElementById("page-top");
 
