@@ -1,13 +1,13 @@
-import { initProductSort } from "./ProductSort.mjs";
+import { initProductSort } from './ProductSort.mjs';
 
 initProductSort(
-  document.getElementById("product-list"),
-  document.getElementById("product-sort"),
-  document.getElementById("product-sort-status"),
+  document.getElementById('product-list'),
+  document.getElementById('product-sort'),
+  document.getElementById('product-sort-status'),
 );
 
-const backToTop = document.getElementById("back-to-top");
-const pageTop = document.getElementById("page-top");
+const backToTop = document.getElementById('back-to-top');
+const pageTop = document.getElementById('page-top');
 
 function updateBackToTop() {
   const scrollableHeight =
@@ -16,16 +16,16 @@ function updateBackToTop() {
   backToTop.hidden = window.scrollY <= 0 || window.scrollY < revealAt;
 }
 
-backToTop.addEventListener("click", () => {
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+backToTop.addEventListener('click', () => {
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   pageTop.focus({ preventScroll: true });
   window.scrollTo({
     top: 0,
-    behavior: reducedMotion.matches ? "auto" : "smooth",
+    behavior: reducedMotion.matches ? 'auto' : 'smooth',
   });
 });
 
-window.addEventListener("scroll", updateBackToTop, { passive: true });
-window.addEventListener("resize", updateBackToTop);
-window.addEventListener("pageshow", updateBackToTop);
+window.addEventListener('scroll', updateBackToTop, { passive: true });
+window.addEventListener('resize', updateBackToTop);
+window.addEventListener('pageshow', updateBackToTop);
 updateBackToTop();
