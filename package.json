@@ -6,9 +6,11 @@
   "scripts": {
     "start": "vite",
     "build": "vite build --emptyOutDir",
+    "build:pages": "vite build --emptyOutDir --base=/wdd330/ && node scripts/prepare-pages.mjs",
     "lint": "eslint *.js src/**/*.js",
     "format": "prettier --ignore-path ./.gitignore --write \"./**/*.{html,json,js,ts,css}\"",
-    "test": "jest"
+    "test": "jest",
+    "test:cart": "node --test tests/cart-quantities.test.mjs"
   },
   "author": "Shane Thompson",
   "license": "ISC",

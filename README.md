@@ -34,4 +34,16 @@
 
 Manual checks: verify all five sort choices, numeric price ordering, stable ordering of equal-price products, persistence after reload, keyboard operation, mobile layout, and the existing Back to Top control.
 
+## W04 Individual Task - Cart quantities
+
+- Team task card: https://trello.com/c/SwprDFn3/1-cart-quantities
+- Source: `src/js/CartQuantity.mjs` and `src/js/cart.js`.
+- Cart: https://rosterrr.github.io/wdd330/cart/index.html
+- Duplicate products are grouped by product ID and color. Increase and decrease controls update quantities from 1 to 99, line totals, item count and subtotal. Remove deletes the selected product group.
+- The stored `so-cart` value remains an array containing one product object per unit, preserving compatibility with existing course code. The cart also reads the older single-product object format. Adding a product preserves quantities already saved.
+- Accessible button names, focus restoration, live status messages and responsive cards support keyboard and mobile use.
+- Run `npm run test:cart` for focused quantity, compatibility, persistence and integer-cent calculation checks.
+- Run `npm run build:pages` to build for the `/wdd330/` GitHub Pages path, including the catalog JSON and original image paths.
+- This submission task is Cart quantities; the excluded Add item to cart activity is not the reported task. The small integration adjustment keeps the quantity feature usable through the existing product pages.
+
 _BYU-Pathway Worldwide improves lives through access to spiritually based, online affordable higher education. Its mission is to develop disciples of Jesus Christ who are leaders in their homes, the Church, and their communities._

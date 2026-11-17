@@ -17,7 +17,7 @@
     <header class="divider">
       <div class="logo">
         <img src="/images/noun_Tent_2517.svg" alt="tent image for logo" />
-        <a href="/index.html"> Sleep<span class="highlight">Outside</span></a>
+        <a href="../index.html"> Sleep<span class="highlight">Outside</span></a>
       </div>
 
       <div class="cart">
@@ -56,9 +56,30 @@
 
     <main class="divider">
       <section class="products">
-        <h2>My Cart</h2>
+        <div class="cart-heading">
+          <h1 id="cart-heading" tabindex="-1">My Cart</h1>
+          <a href="../index.html">Continue shopping</a>
+        </div>
+        <p class="cart-help">
+          Adjust quantities below. Item totals update automatically.
+        </p>
+        <p
+          id="cart-status"
+          class="cart-status"
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+        ></p>
+        <p id="cart-empty" class="cart-empty" hidden>
+          Your cart is empty. <a href="../index.html">Explore our tents</a> to
+          get started.
+        </p>
 
-        <ul class="product-list">
+        <ul
+          id="cart-list"
+          class="product-list cart-list"
+          aria-label="Shopping cart items"
+        >
           <!-- <li class="cart-card divider">
             <a href="product_pages/marmot-ajax-3.html" class="cart-card__image">
               <img
@@ -90,6 +111,15 @@
             <p class="cart-card__price">$199.99</p>
           </li> -->
         </ul>
+        <section
+          id="cart-summary"
+          class="cart-summary"
+          aria-label="Cart summary"
+          hidden
+        >
+          <p id="cart-count"></p>
+          <p>Subtotal <strong id="cart-subtotal">$0.00</strong></p>
+        </section>
       </section>
     </main>
 
