@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en"><head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#132238">
+  <meta name="description" content="Explore cryptocurrency prices, keep a personal watchlist, and convert crypto amounts using dated exchange rates.">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml"><title>Crypto Watch | Market dashboard</title>
+</head><body>
+<a class="skip" href="#market">Skip to market</a>
+<header><div class="wrap topbar">
+  <a class="brand" href="#overview"><img src="./icon.svg" width="42" height="42" alt=""><span>Crypto <strong>Watch</strong></span></a>
+  <nav aria-label="Dashboard sections"><a href="#market">Market</a><a href="#watchlist">Watchlist</a><a href="#converter">Converter</a></nav>
+  <div class="currency"><label for="currency">Display currency</label><select id="currency"><option>USD</option></select></div>
+</div></header>
+<main class="wrap">
+  <div class="page-title" id="overview"><div><p class="eyebrow">Market dashboard</p><h1>Market overview</h1></div>
+    <button id="refresh" type="button" class="outline"><span aria-hidden="true">⟳</span> <span id="refresh-text">Refresh data</span></button></div>
+  <section class="feature" aria-labelledby="focus-title">
+    <div><p class="overline">Asset in focus</p><h2 id="focus-title">Loading market…</h2><p class="hero-price" id="focus-price">—</p><p id="focus-change"></p></div>
+    <div class="chart"><div class="chart-head"><span>Price history</span><span class="chart-unit">7 days · USD</span></div><svg id="spark" viewBox="0 0 400 90" role="img" aria-label="Price history unavailable" preserveAspectRatio="none"><path id="spark-line" fill="none" stroke="#59d6c9" stroke-width="3" vector-effect="non-scaling-stroke"></path></svg><p class="chart-note" id="focus-note"></p></div>
+  </section>
+  <p id="market-status" role="status" class="status">Loading market prices…</p>
+  <div class="layout">
+    <section class="panel market" id="market" aria-labelledby="market-title"><div class="panel-head"><div><p class="eyebrow">Explore</p><h2 id="market-title">Market prices</h2></div><span class="count" id="count">—</span></div>
+      <div class="tools"><label class="search-label" for="search">Search coins<input id="search" type="search" placeholder="Name or symbol" autocomplete="off"></label>
+      <label for="sort">Sort by<select id="sort"><option value="cap">Market cap</option><option value="price">Price</option><option value="change">24h change</option></select></label>
+      <label for="order">Order<select id="order"><option value="desc">Highest first</option><option value="asc">Lowest first</option></select></label></div>
+      <table aria-label="Cryptocurrency market prices"><thead><tr><th scope="col">Asset / rank</th><th scope="col">Price</th><th scope="col">24h change</th><th scope="col">Market cap</th><th scope="col"><span class="sr">Watchlist</span></th></tr></thead><tbody id="rows"></tbody></table>
+      <div id="empty" class="empty" hidden><p id="empty-text"></p><button type="button" id="clear" class="outline">Clear search</button></div>
+    </section>
+    <aside>
+      <section class="panel" id="watchlist" aria-labelledby="watch-title"><p class="eyebrow">Personal list</p><h2 id="watch-title">Watchlist</h2><p class="subtle">Star a coin to keep it on this device.</p><ul id="saved"></ul><p id="watch-empty" class="empty-line">No saved coins yet.</p><p class="sr" role="status" id="watch-status"></p></section>
+      <section class="panel" id="converter" aria-labelledby="conv-title"><p class="eyebrow">Exchange tools</p><h2 id="conv-title">Currency converter</h2>
+        <form id="convert-form"><label for="coin">Coin<select id="coin" required></select></label><label for="amount">Amount<input type="number" id="amount" step="any" min="0" value="1" required></label>
+        <button type="submit" class="primary">Convert to <span id="unit">USD</span></button></form>
+        <p id="converted" class="result" aria-live="polite">Select a coin and enter an amount.</p><p class="status small" id="fx-status" role="status">Loading exchange rates…</p></section>
+    </aside>
+  </div>
+  <section class="panel detail" id="detail" tabindex="-1" hidden aria-labelledby="detail-title"><div class="panel-head"><div><p class="eyebrow">Asset details</p><h2 id="detail-title"></h2></div><button class="outline" type="button" id="close-detail">Close details</button></div><dl id="detail-stats"></dl></section>
+</main>
+<footer><div class="wrap"><span>Crypto Watch</span><span>Market data: <a href="https://www.coingecko.com/en/api">CoinGecko</a> · FX reference rates: <a href="https://frankfurter.dev/">Frankfurter</a></span></div></footer>
+<script type="module" src="./src/main.mjs"></script>
+</body></html>
