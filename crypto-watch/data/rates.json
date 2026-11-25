@@ -1,0 +1,1 @@
+{"source":"https://api.frankfurter.dev/v2/rates?base=USD&quotes=EUR,GBP,CAD","capturedAt":"2026-11-25T17:51:08Z","data":[{"date":"2026-11-25","base":"USD","quote":"CAD","rate":1.4303},{"date":"2026-11-25","base":"USD","quote":"EUR","rate":0.91334},{"date":"2026-11-25","base":"USD","quote":"GBP","rate":0.76401}]}

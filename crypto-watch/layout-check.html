@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>Crypto Watch responsive layout check</title>
+<style>body{font:16px/1.5 system-ui;color:#132238;padding:1rem}figure{margin:1rem 0}iframe{display:block;height:660px;border:0}figcaption{font-weight:650;margin-bottom:.4rem}.frame{overflow:auto;border:1px solid #ccc}</style></head>
+<body><h1>Responsive layout check</h1><p>Both frames load the deployed dashboard at a fixed viewport width. A passing measurement means that the dashboard fits its viewport without horizontal scrolling.</p>
+<figure><figcaption>Phone · 360 pixels · <output id="phone-result">Checking…</output></figcaption><div class="frame"><iframe title="360 pixel dashboard" id="phone" width="360" src="./"></iframe></div></figure>
+<figure><figcaption>Desktop · 1280 pixels · <output id="desktop-result">Checking…</output></figcaption><div class="frame"><iframe title="1280 pixel dashboard" id="desktop" width="1280" src="./"></iframe></div></figure>
+<script type="module">
+for (const id of ['phone','desktop']) {
+  const frame = document.getElementById(id);
+  function measure() {
+    const d=frame.contentDocument;
+    if (!d?.querySelector('#market[aria-busy="false"]')) return;
+    const root=d.documentElement;
+    const pass=root.scrollWidth<=root.clientWidth;
+    const rows=d.querySelectorAll('#rows tr').length;
+    document.getElementById(id+'-result').textContent=(pass?'Fits':'Overflows')+' · content '+root.scrollWidth+' px / viewport '+root.clientWidth+' px · '+rows+' market rows';
+  }
+  function observe(){
+    const root=frame.contentDocument?.documentElement;
+    if(!root)return;
+    new MutationObserver(measure).observe(root,{childList:true,subtree:true,attributes:true});
+    new ResizeObserver(measure).observe(root);
+    measure();
+  }
+  frame.addEventListener('load',observe);observe();
+}
+</script></body></html>
